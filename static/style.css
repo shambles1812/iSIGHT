@@ -1,0 +1,43 @@
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1, .card-title {
+    color: #10326F;
+}
+
+.card {
+    border: 1px solid #10326F;
+}
+
+.btn-primary {
+    background-color: #10326F;
+    border-color: #10326F;
+}
+
+.form-control {
+    background-color: #ffffff;
+    border-color: #10326F;
+    color: #343a40;
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    border-color: #10326F;
+    color: #343a40;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.fas {
+    margin-right: 10px;
+}

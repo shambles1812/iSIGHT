@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <title>iSIGHT - iAcademy Updates</title>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="card border-primary">
+            <div class="card-body">
+                <h1 class="card-title text-center text-primary">iSIGHT - iAcademy Updates for {{ date }}</h1>
+                {% if updates %}
+                <div class="card my-3 border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Classes Today</h5>
+                        <p class="card-text">{{ updates.classes }}</p>
+                    </div>
+                </div>
+                <div class="card my-3 border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Offices Open</h5>
+                        <p class="card-text">{{ updates.offices }}</p>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="card my-3 border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Current Weather in Makati</h5>
+                        <p class="card-text">Condition: {{ weather_data.condition }}</p>
+                        <p class="card-text">Temperature: {{ weather_data.temperature }} °C</p>
+                        <p class="card-text">Humidity: {{ weather_data.humidity }} %</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

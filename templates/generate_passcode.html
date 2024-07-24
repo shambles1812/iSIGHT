@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <title>Generate Passcodes - iSIGHT</title>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between mb-3">
+            <h1 class="text-primary">Generate Passcodes</h1>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+        <form method="POST">
+            <button type="submit" class="btn btn-primary mb-3">Generate New Passcode</button>
+        </form>
+        <div class="card border-primary">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Current Passcodes</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Passcode</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for passcode in passcodes %}
+                        <tr>
+                            <td>{{ passcode.code }}</td>
+                            <td>
+                                <form action="{{ url_for('delete_passcode', passcode_id=passcode._id) }}" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
