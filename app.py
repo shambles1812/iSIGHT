@@ -10,21 +10,17 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
-# MongoDB Configuration
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/school_updates'
 mongo = PyMongo(app)
 
-# WeatherAPI Configuration
-API_KEY = '95a62d5cdca4430482e234834242307'  # Replace with your actual API key
+API_KEY = '95a62d5cdca4430482e234834242307'
 CITY = 'Makati'
 COUNTRY = 'Philippines'
 WEATHER_URL = f'http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={CITY},{COUNTRY}&aqi=no'
 
-# Helper function to generate passcodes
 def generate_passcode(length=6):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
 
-# Function to fetch current weather data
 def fetch_weather_data():
     response = requests.get(WEATHER_URL)
     data = response.json()
