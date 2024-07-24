@@ -13,7 +13,7 @@ app.secret_key = 'supersecretkey'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/school_updates'
 mongo = PyMongo(app)
 
-API_KEY = '95a62d5cdca4430482e234834242307'
+API_KEY = 'your_weatherapi_key'
 CITY = 'Makati'
 COUNTRY = 'Philippines'
 WEATHER_URL = f'http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={CITY},{COUNTRY}&aqi=no'
